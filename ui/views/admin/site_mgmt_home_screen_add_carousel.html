@@ -1,0 +1,55 @@
+<div class="container-fluid" ng-controller="SiteMgmtHomeScreen">
+
+    <div class="jumbotron">
+
+        <form id="carouselAdd" name="carouselAddForm" class="form-horizontal">
+
+            <!-- Title -->
+            <div class="row form-group">
+                <!-- label -->
+                <label class="col-md-2 control-label">Image Title</label>
+                <!-- value-->
+                <div class="col-md-6" >
+                    <input type="text" id="carouselTitle" placeholder="Enter Title for the image" class="k-textbox home_screen_text_medium" ng-model="carouselImage.title">
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="row form-group">
+                <!-- label -->
+                <label class="col-md-2 control-label">Image Description</label>
+                <!-- value-->
+                <div class="col-md-6" >
+                    <textarea rows="3" id="carouselDesc" placeholder="Enter Description for the image" class="k-textbox home_screen_text_area_medium" ng-model="carouselImage.desc"></textarea>
+                </div>
+            </div>
+
+            <!-- Upload Image -->
+            <div class="row form-group">
+                <!-- label -->
+                <label class="col-md-2 control-label">Upload Image</label>
+                <!-- Image-->
+                <div class="col-md-6" >
+                    <input id="carouselImage" type="file" name="carouselImage" onChange="angular.element(this).scope().uploadCarouselImage(this);" class="k-button">
+                </div>
+            </div>
+
+            <!-- SAVE & CANCEL buttons -->
+            <div class="row form-group">
+
+                <!-- SAVE -->
+                <div class="col-md-4" >
+                    <a class="btn btn-primary btn-md" role="button" ng-click="onSave()">SAVE</a>
+                </div>
+
+                <!-- CANCEL -->
+                <div class="col-md-4" >
+                    <a class="btn btn-primary btn-md" role="button" href="customize_home_screen">CANCEL</a>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container-fluid" ng-controller="SiteMgmtContents">
+    <div class="jumbotron" id="contentMgmt">
+        <!-- Display the Section Drop Down-->
+        <div class="row form-group">
+            <div class="col-md-4">
+                <select kendo-combo-box
+                        k-data-text-field="'sectionName'"
+                        k-data-value-field="'_id'"
+                        k-filter="contains"
+                        k-auto-bind="true"
+                        k-min-length="5"
+                        ng-model="selectedSection"
+                        ng-change="onDropDownChange(this)"
+                        k-index="1"
+                        k-data-source="sectionList">
+                </select>
+            </div>
+        </div>
+
+        <!-- add a divider -->
+        <div>
+            <hr class="horizontal_divider_one">
+        </div>
+
+        <!-- Display the Records  as grid for the selected section -->
+        <div class="row">
+            <div class="col-md-12">
+                <div ng-grid="contentGridOptions" class="mc_grid" style="height:150px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- add a divider -->
+        <div>
+            <hr class="horizontal_divider_one">
+        </div>
+
+        <!-- Display the Editor -->
+        <div class="row">
+            <div class="col-md-12" >
+                <div id="contentMgmtEditor" summer-note-editor editor-height="200" editor-focus="true">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1" >
+                <a class="btn btn-primary btn-md" role="button" ng-click="onContentSave()" ng-disabled="isSave==false">SAVE</a>
+            </div>
+            <div class="col-md-1" >
+                <a class="btn btn-primary btn-md" role="button" ng-click="onContentUpdate()" ng-disabled="isUpdate==false">UPDATE</a>
+            </div>
+        </div>
+    </div>
+</div>

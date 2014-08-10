@@ -1,0 +1,31 @@
+<div class="container-fluid" ng-controller="GalleryController" >
+    <div class="jumbotron" id="gallery">
+        <!-- Display Album as thumbnails -->
+        <div class="row">
+            <div class="col-md-2" ng-repeat="album in albumList">
+                <a href="#" class="thumbnail" ng-repeat="image in album.images" ng-if="$first">
+                    <img ng-src="./{{image.imagePath}}" ng-click="loadAlbumImages(album)">
+                </a>
+                <span mm-album mm-album-id="{{album.album_id}}">{{albumName}}</span>
+            </div>
+        </div>
+        <!-- add a divider -->
+        <div>
+            <hr class="horizontal_divider_one">
+        </div>
+        <!-- Gallery Carousel -->
+        <div class="row">
+            <div id="galleryCarousel">
+                <carousel interval="carouselInterval">
+                    <slide ng-repeat="galleryImage in galleryImageList" active="galleryImage.active">
+                        <img ng-src="./{{galleryImage.imagePath}}" id="galleryImageId">
+                        <div class="carousel-caption">
+                            <p>{{galleryImage.imageDesc}}</p>
+                        </div>
+                    </slide>
+                </carousel>
+            </div>
+        </div>
+
+    </div>
+</div>

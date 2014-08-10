@@ -1,0 +1,13 @@
+<div class="container-fluid" ng-controller="AboutUsController" >
+    <div class="jumbotron" id="aboutUs">
+        <!-- Display about us in paragraphs -->
+        <div class="row"  ng-repeat="content in contentList">
+            <div class="col-md-12">
+                <div mm-html-render content-text="{{content.content_html}}">
+
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

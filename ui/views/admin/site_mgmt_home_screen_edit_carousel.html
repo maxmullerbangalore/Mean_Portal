@@ -1,0 +1,69 @@
+<div class="container-fluid" ng-controller="SiteMgmtHomeScreen">
+
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Carousel</h3>
+    </div>
+
+    <div class="modal-body">
+        <form id="carouselAdd" name="carouselAddForm" class="form-horizontal">
+
+            <!-- Title -->
+            <div class="row form-group">
+                <!-- label -->
+                <label class="col-md-2 control-label">Image Title</label>
+                <!-- value-->
+                <div class="col-md-6" >
+                    <input type="text" id="carouselTitle" placeholder="Enter Title for the image" class="k-textbox home_screen_text_medium" ng-model="updatedCarouselImage.title">
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="row form-group">
+                <!-- label -->
+                <label class="col-md-2 control-label">Image Description</label>
+                <!-- value-->
+                <div class="col-md-6" >
+                    <textarea rows="3" id="carouselDesc" placeholder="Enter Description for the image" class="k-textbox home_screen_text_area_medium" ng-model="updatedCarouselImage.desc"></textarea>
+                </div>
+            </div>
+
+            <!-- Image Preview -->
+            <div class="row form-group">
+                <!-- label -->
+                <label class="col-md-2 control-label">Existing Image</label>
+                <!-- Image-->
+                <div class="col-md-6" >
+                    <img ng-src="{{updatedCarouselImage.imagePath}}" class="img-rounded" height="200px" width="200px">
+                </div>
+            </div>
+
+            <!-- Upload Image -->
+            <div class="row form-group">
+                <!-- label -->
+                <label class="col-md-2 control-label">Upload New Image</label>
+                <!-- Image-->
+                <div class="col-md-6" >
+                    <input id="carouselImage" type="file" name="carouselImage" onChange="angular.element(this).scope().uploadCarouselImageEdit(this);" class="k-button">
+                </div>
+            </div>
+        </form>
+    </div> <!-- modal body -->
+
+    <div class="modal-footer">
+        <!-- SAVE & CANCEL buttons -->
+        <div class="row form-group">
+
+            <!-- SAVE -->
+            <div class="col-md-4" >
+                <a class="btn btn-primary btn-md" role="button" ng-click="onModalUpdate()">UPDATE</a>
+            </div>
+
+            <!-- CANCEL -->
+            <div class="col-md-4" >
+                <a class="btn btn-primary btn-md" role="button" ng-click="onCancel()">CANCEL</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>

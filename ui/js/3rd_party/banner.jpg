@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html ng-app="maxmuller">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MaxMuller High School,Bangalore</title>
+
+    <!-- jquery version 1.11.0 -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- Bootstrap version 3.2.0 -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- angularjs version 1.2.3  -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+
+    <!-- Kendo UI Core -->
+    <script src="http://cdn.kendostatic.com/2014.1.416/js/kendo.ui.core.min.js"></script>
+
+    <!-- Angular Kendo -->
+    <script src="./js/3rd_party/angular-kendo.min.js"></script>
+
+    <!-- angularjs route version 1.2.18 -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-route.min.js"></script>
+    <!-- angularjs ui-bootstrap 0.10.0 -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+    <!-- Angular ng-gridJS-->
+    <script src="./js/3rd_party/ng-grid-2.0.11.min.js"></script>
+
+    <!-- Angular Text WYSIWYG text editor-->
+    <script src="./js/3rd_party/textAngular.js"></script>
+    <script src="./js/3rd_party/textAngular-sanitize.js"></script>
+    <script src="./js/3rd_party/textAngularSetup.js"></script>
+
+    <!-- SummerNote WYSIWYG  text editor -->
+    <!-- jquery hot keys -->
+    <script src="./js/3rd_party/jquery.hotkeys.js"></script>
+    <!-- bootstrap wysiwyg text editor -->
+    <script src="./js/3rd_party/summernote.min.js"></script>
+
+    <!-- ng-flow -->
+    <script src="./js/3rd_party/ng-flow-standalone.js"></script>
+    <script src="./js/client_routes.js"></script>
+
+    <!--  Blue Imp Image Gallery -->
+    <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="./js/3rd_party/bootstrap-image-gallery.min.js"></script>
+
+
+    <!-- Initialize Angular JS-->
+    <script>
+	    console.log('index.html#AngularJS init');
+		var maxmuller = angular.module('maxmuller',['ngRoute','ngGrid','flow','ui.bootstrap','kendo.directives']);
+		maxmuller.config(ClientRoutes);
+	</script>
+
+    <!-- Angular JS Services -->
+    <script src="./js/service/sm_home_screen_service.js"></script>
+    <script src="./js/service/home_service.js"></script>
+    <script src="./js/service/sm_gallery_service.js"></script>
+
+    <!-- Angular JS Controllers -->
+    <script src="./js/controller/sm_home_screen_controller.js"></script>
+    <script src="./js/controller/sm_announcement_controller.js"></script>
+    <script src="./js/controller/home_controller.js"></script>
+    <script src="./js/controller/sm_gallery_controller.js"></script>
+    <script src="./js/controller/gallery_controller.js"></script>
+
+    <!-- Angular JS Directives -->
+    <script src="./js/directive/gallery_directive.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+
+    <!-- Font Awesome 4.1.0 CDN -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" />
+
+    <!-- Kendo UI Core -->
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.common-bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.bootstrap.min.css">
+
+
+    <!-- Angular ng-grid css-->
+    <link href="./css/3rd_party/ng-grid.css" rel="stylesheet">
+
+    <!-- summer note -->
+    <link href="./css/3rd_party/summernote.css" rel="stylesheet">
+
+    <!-- max muller css-->
+    <link href="./css/max_muller.css" rel="stylesheet">
+
+    <!-- BlueImp Image Gallery -->
+    <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="./css/3rd_party/bootstrap-image-gallery.min.css">
+
+    <!-- Google Web Fonts -->
+
+    <!-- Navigation Items -->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <!-- Footer -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- in line style -->
+    <style>
+        .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+        .ta-editor {
+            min-height: 300px;
+            height: auto;
+            overflow: auto;
+            font-family: inherit;
+            font-size: 100%;
+            margin:20px 0;
+        }
+
+        #navigationDiv {
+            font-family: 'Droid Sans', sans-serif;
+            color: blue;
+        }
+
+        #footerDiv {
+            font-family: 'Open Sans', sans-serif;
+            color: blue;
+        }
+
+    </style>
+
+    <script>
+        // Call the Home Screen
+        maxmuller.run(function($location){
+            console.log("index.html#run#home");
+            $location.path( "home" );
+        });
+    </script>
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation" id="navigationDiv">
+    <div class="container">
+        <!-- Navigation Items -->
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="home">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Announcements</a></li>
+                        <li><a href="#">Facilities</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="gallery">Gallery</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Academics <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Results</a></li>
+                                <li><a href="#">Achievements</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Schedule</li>
+                                <li><a href="#">Class Schedule</a></li>
+                                <li><a href="#">Exam Schedule</a></li>
+                                <li><a href="#">PTA Meeting Schedule</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="dropdown-header">Site Management</li>
+                                <li><a href="site_mgmt_list_carousel">Home Screen</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="site_mgmt_add_announcement">Announcements</a></li>
+                                <li><a href="#">Facilities</a></li>
+                                <li><a href="#">Events</a></li>
+                                <li><a href="site_mgmt_gallery">Gallery</a></li>
+                                <li><a href="#">Academics</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">User Management</li>
+                                <li><a href="#">Users</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </div>
+    </div> <!-- container div -->
+</div>
+
+<div class="container">
+    <div ng-view id="ngViewDiv">
+        <span>XXXXXXX</span>
+    </div>
+</div>
+
+</div>
+
+
+<div class="container">
+    <div class="footer" id="footerDiv">
+        <!-- Copyright -->
+        <div class="row">
+            <div class="col-md-12">
+                <img src="img/school_logo.jpg" class="img-rounded" alt="Max Muller" height="100px" width="100px">
+                <span>MAX MULLER HIGH SCHOOL (Recognized by the government of Karnataka)</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

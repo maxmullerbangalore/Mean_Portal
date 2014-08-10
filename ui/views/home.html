@@ -1,0 +1,19 @@
+<div class="container-fluid" ng-controller="HomePageController">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="homeScreenCarouselDiv">
+                    <carousel interval="carouselInterval">
+                        <slide ng-repeat="carousel in carouselList" active="carousel.active">
+                            <img ng-src="./{{carousel.imagePath}}" id="homeCarouselImg">
+                            <div class="carousel-caption">
+                                <h4>{{carousel.title}}</h4>
+                                <p>{{carousel.desc}}</p>
+                            </div>
+                        </slide>
+                    </carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

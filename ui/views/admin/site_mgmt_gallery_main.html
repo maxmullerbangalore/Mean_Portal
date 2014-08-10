@@ -1,0 +1,125 @@
+<div class="container-fluid" ng-controller="SiteMgmtGallery" >
+
+    <div class="jumbotron" id="siteMgmtGallery">
+        <!-- Form to add Album -->
+        <form id="albumAdd" name="albumAddForm" class="form-horizontal">
+            <!-- Name -->
+            <div class="row form-group">
+                <!-- label -->
+                <label class="col-md-4 control-label">Album Name</label>
+                <!-- value-->
+                <div class="col-md-6" >
+                    <input type="text" id="albumName" placeholder="Enter Name for the Album" class="k-textbox home_screen_text_medium" ng-model="album.name">
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="row form-group">
+                <!-- label -->
+                <label class="col-md-4 control-label">Album Desc </label>
+                <!-- value-->
+                <div class="col-md-6" >
+                    <input type="text" id="albumDesc" placeholder="Enter Description for the Album" class="k-textbox home_screen_text_medium" ng-model="album.desc">
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <!-- SAVE & RESET buttons -->
+            <div class="row form-group">
+                <!-- SAVE -->
+                <div class="col-md-2 col-md-offset-4" >
+                    <a class="btn btn-primary btn-md" role="button" ng-click="onAlbumSave()">SAVE</a>
+                </div>
+
+                <!-- RESET -->
+                <div class="col-md-2" >
+                    <a class="btn btn-primary btn-md" role="button" ng-click="onAlbumReset()">RESET</a>
+                </div>
+
+            </div>
+        </form>
+
+        <!-- add a divider -->
+        <div>
+            <hr class="horizontal_divider_one">
+        </div>
+
+        <!-- Form to add Images to Album -->
+        <form id="albumEdit" name="albumEditForm" class="form-horizontal">
+            <!-- Album -->
+            <div class="row form-group">
+                <!-- label -->
+                <label class="col-md-4 control-label">Select Album</label>
+                <!-- value-->
+                <div class="col-md-6">
+                    <!--
+                    <input type="text" id="photoAlbumID" placeholder="Type or select from list" >
+                    -->
+                    <select kendo-combo-box
+                            k-placeholder="'Select Album'"
+                            k-data-text-field="'name'"
+                            k-data-value-field="'_id'"
+                            k-filter="contains"
+                            k-auto-bind="true"
+                            k-min-length="5"
+                            ng-model="selectedAlbum"
+                            k-on-change="onDropDownChange(event)"
+                            k-data-source="albumList">
+                    </select>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="row form-group">
+                <!-- label -->
+                <label class="col-md-4 control-label">Photo Desc </label>
+                <!-- value-->
+                <div class="col-md-6" >
+                    <input type="text" id="photoAlbumDesc" placeholder="Enter Description for the Photo" class="k-textbox home_screen_text_medium" ng-model="albumImageDesc">
+                </div>
+            </div>
+
+            <!-- Upload Image -->
+            <div class="row form-group">
+                <!-- label -->
+                <label class="col-md-4 control-label">Upload Image</label>
+                <!-- Image-->
+                <div class="col-md-4" >
+                    <input id="albumImage" type="file" name="albumImage" onChange="angular.element(this).scope().onAlbumImageUpload(this);" class="k-button">
+                </div>
+                <div class="col-md-2" >
+                    <a class="btn btn-primary btn-md" role="button" ng-click="onAlbumImageAddMore()">Add More Photos</a>
+                </div>
+            </div>
+
+            <!-- Image Preview -->
+            <div class="row form-group" ng-repeat="image in previewImages">
+                <div class="col-md-1" >
+                    <span>{{image.imagePath}}</span>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <!-- SAVE & RESET buttons -->
+            <div class="row form-group">
+                <!-- SAVE -->
+                <div class="col-md-2 col-md-offset-4" >
+                    <a class="btn btn-primary btn-md" role="button" ng-click="onAlbumImageSave()">SAVE</a>
+                </div>
+
+                <!-- EDIT -->
+                <div class="col-md-2" >
+                    <a class="btn btn-primary btn-md" role="button" ng-click="onAlbumImageDelete()">DELETE</a>
+                </div>
+
+                <!-- CANCEL -->
+                <div class="col-md-2" >
+                    <a class="btn btn-primary btn-md" role="button" ng-click="onAlbumImageUploadCancel()">CANCEL</a>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+
+</div>

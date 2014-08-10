@@ -1,0 +1,32 @@
+<div class="container-fluid" ng-controller="LoginController">
+    
+    <div class="jumbotron">    
+        <div class="row form-group">
+            <!-- label -->
+                <label class="col-md-2 control-label">Email Id</label>
+                <!-- value-->
+                <div class="col-md-6" >
+                    <input type="text" id="emailId" placeholder="Enter email id" class="k-textbox home_screen_text_medium" ng-model="credentials.userID">
+                </div>
+        </div>
+
+        <div class="row form-group">
+            <!-- label -->
+                <label class="col-md-2 control-label">Password</label>
+                <!-- value-->
+                <div class="col-md-6" >
+                    <input type="password" id="password" placeholder="Enter Password" class="k-textbox home_screen_text_medium" ng-model="credentials.password">
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 offset2">
+                <a class="btn btn-primary btn-md" role="button" ng-click="onLogin()">LOGIN</a>
+            </div>
+            <div class="col-md-2 offset2">
+                <a class="btn btn-primary btn-md" role="button" ng-click="onCancel()">CANCEL</a>
+            </div>
+        </div>
+    </div>
+
+</div>
